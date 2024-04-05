@@ -17,9 +17,11 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Install dependencies
         run: bun install
-      - name: build proj
-        run: bun build
-      - name: Publish package
+      - name: Test
+        run: bun run test
+      - name: Build
+        run: bun run build
+      - name: Publish to NPM
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
